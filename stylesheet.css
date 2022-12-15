@@ -2,3 +2,45 @@
 color: #d4d2d2;
 font-style: italic;
 }
+
+.li-class{
+        list-style: none;
+         border: 1px solid red;
+          border :"1px solid red";
+        font-Size :2.5rem;
+        font-Weight : "100";
+        background : white;
+        height: auto;
+}
+
+.btn-class{
+    position: relative;
+    float: right;
+    /* display: flex; */
+    justify-content: space-between;
+    width: 3vw;
+    height: 6vh;
+    background:#e3444c;
+    color: white;
+    font-size:xx-large ;
+
+}
+
+.checkbox-class{
+    position: relative;
+    float: left;
+  width: 3em;
+    height: 3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #f96161;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkbox-class:checked{
+     background-color: #f96161;
+}
