@@ -1,4 +1,3 @@
-let tempArray = [];
 
 ////..............Header..............////////
 
@@ -127,8 +126,10 @@ function addItem(event) {
   if (event.keyCode == 13) {
     var data = JSON.parse(localStorage.getItem("data"));
     if (data === null) {
-      tempArray.push({ message: event.target.value });
-      localStorage.setItem("data", JSON.stringify(tempArray));
+      localStorage.setItem(
+        "data",
+        JSON.stringify([{ message: event.target.value }])
+      );
     } else {
       var data = JSON.parse(localStorage.getItem("data"));
       const arrayData = [...data, { message: event.target.value }];
@@ -262,7 +263,7 @@ function deletedata(event) {
 function demo() {
   var data = JSON.parse(localStorage.getItem("data"));
 
-  if (data) {
+  if (data !== null) {
     let count = 0;
     data.forEach(function (item) {
       //var li = document.createElement("li");
