@@ -66,8 +66,19 @@ listul.style.flexDirection = "column";
 // clearbtn.setAttribute("value", "reset form");
 
 //...........All butn  div...........//
+
+let btnDiv = document.createElement("div");
+taskDiv.appendChild(btnDiv);
+btnDiv.classList.add("btndiv");
+
+let counterDiv = document.createElement("div");
+btnDiv.appendChild(counterDiv);
+counterDiv.classList.add("counterdiv-class");
+counterDiv.innerText = " 0 Item Left";
+
 let allBtnDiv = document.createElement("div");
-taskDiv.appendChild(allBtnDiv);
+btnDiv.appendChild(allBtnDiv);
+allBtnDiv.classList.add("allbtndiv");
 
 let allbtn = document.createElement("button");
 allBtnDiv.appendChild(allbtn);
@@ -84,6 +95,10 @@ allBtnDiv.appendChild(completeBtn);
 completeBtn.className = "completeBtn-class";
 completeBtn.innerText = "complete";
 
+let clearDiv = document.createElement("button");
+btnDiv.appendChild(clearDiv);
+clearDiv.classList.add("cleardiv-class");
+clearDiv.innerText = "Clear Data";
 ///.........Function For adding text........//////
 
 let inputText = document.getElementById("filter");
@@ -92,6 +107,8 @@ let inputText = document.getElementById("filter");
 ///......Enter btn event for submiting task to li....../
 
 inputText.addEventListener("keypress", addItem);
+inputText.addEventListener("keypress", countItem);
+let checkBoxCount = document.querySelector;
 
 ///..........clearing text from input box.....//
 
@@ -112,10 +129,6 @@ function addItem(event) {
     //.......creating new element.....//
 
     let li = document.createElement("li");
-
-    // li.style.display = "flex";
-    // li.style.flexDirection = "row-reverse"
-
     // adding class to it...//
     li.className = "li-class";
     li.id = "li-id" + count;
@@ -151,6 +164,8 @@ function addItem(event) {
         e.target.parentElement.style.textDecoration = "none";
       }
     });
+
+    checkBox.addEventListener("click", countItem);
   }
 }
 
@@ -159,6 +174,7 @@ function removeItem(event) {
   if (event.target.classList.contains("btn-class")) {
     let li = event.target.parentElement;
     listul.removeChild(li);
+    countItem();
   }
 }
 
@@ -170,7 +186,6 @@ function myFunction(e) {
     clearValue.value = "";
   }
 }
-
 
 ///......................Cheking All................./////
 checkBoxAll.addEventListener("change", (e) => {
@@ -185,4 +200,73 @@ checkBoxAll.addEventListener("change", (e) => {
     checkBoxSelect.forEach((ele) => (ele.checked = false));
     lineThrow.forEach((ele) => (ele.style.textDecoration = "none"));
   }
+  countItem();
 });
+
+////...........Adding Task count................//////
+
+function countItem(event) {
+  let startCount = document.querySelector(".counterdiv-class");
+  let newCount = 0;
+
+  let listData = document.querySelectorAll(".checkbox-class");
+  listData.forEach((ele) => {
+    if (ele.checked === false) {
+      newCount++;
+    }
+  });
+  startCount.innerText = newCount + " Items Left";
+}
+
+////..........applying button to function.....///
+
+let allTaskShow = document.querySelector(".allbtn-class");
+allTaskShow.addEventListener("click", showTask);
+function showTask(event) {
+  let taskContain = document.querySelectorAll(".checkbox-class");
+  taskContain.forEach((ele) => {
+    ele.parentElement.style.display = "block";
+  });
+}
+
+let activeshow = document.querySelector(".activebtn-class");
+activeshow.addEventListener("click", showActiveTask);
+function showActiveTask(event) {
+  // let taskContain = taskDiv.firstElementChild.childNodes;
+  let taskContain = document.querySelectorAll(".checkbox-class");
+  taskContain.forEach((ele) => {
+    if (ele.checked) {
+      ele.parentElement.style.display = "none";
+    } else {
+      ele.parentElement.style.display = "block";
+    }
+  });
+}
+
+let completedShow = document.querySelector(".completeBtn-class");
+completedShow.addEventListener("click", completedShowTask);
+function completedShowTask(event) {
+  // let taskContain = taskDiv.firstElementChild.childNodes;
+  let taskContain = document.querySelectorAll(".checkbox-class");
+
+  taskContain.forEach((ele) => {
+    if (ele.checked) {
+      ele.parentElement.style.display = "block";
+    } else {
+      ele.parentElement.style.display = "none";
+    }
+  });
+}
+
+let cleardataword = document.querySelector(".cleardiv-class");
+cleardataword.addEventListener("click", deletedata);
+function deletedata(event) {
+  let taskContain = document.querySelectorAll(".checkbox-class");
+  taskContain.forEach((ele) => {
+    ele.parentElement.remove();
+  });
+  countItem();
+}
+
+
+
