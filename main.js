@@ -84,17 +84,18 @@ allBtnDiv.classList.add("allbtndiv");
 
 let allbtn = document.createElement("button");
 allBtnDiv.appendChild(allbtn);
-allbtn.className = "allbtn-class";
+allbtn.classList.add("allbtn-class", "btncolor");
 allbtn.innerText = "All";
+
 
 let activeBtn = document.createElement("button");
 allBtnDiv.appendChild(activeBtn);
-activeBtn.className = "activebtn-class";
+activeBtn.classList.add("activebtn-class", "btncolor");
 activeBtn.innerText = "active";
 
 let completeBtn = document.createElement("button");
 allBtnDiv.appendChild(completeBtn);
-completeBtn.className = "completeBtn-class";
+completeBtn.classList.add("completeBtn-class","btncolor");
 completeBtn.innerText = "complete";
 
 let clearDiv = document.createElement("button");
@@ -124,6 +125,8 @@ let count = 0;
 
 function addItem(event) {
   if (event.keyCode == 13) {
+    let newTask = inputText.value;
+     if (newTask !== "") {
     var data = JSON.parse(localStorage.getItem("data"));
     if (data === null) {
       localStorage.setItem(
@@ -141,11 +144,12 @@ function addItem(event) {
     event.preventDefault();
     count++;
     //........geting input.........//
-    let newTask = inputText.value;
+    
+   
 
     //.......creating new element.....//
 
-    /////check / checked..../
+  }/////check / checked..../
   }
 }
 
@@ -259,16 +263,24 @@ function deletedata(event) {
   });
   countItem();
   localStorage.clear();
+  let uncheck = document.querySelector(".checkboxall-class");
+  if(uncheck.checked == true){
+    uncheck.checked = false;
+  }else{
+    uncheck.checked = false;
+  }
 }
 function demo() {
   var data = JSON.parse(localStorage.getItem("data"));
 
   if (data !== null) {
     let count = 0;
+    
     data.forEach(function (item) {
       //var li = document.createElement("li");
       //var text = document.createTextNode(item.message);
       //li.appendChild(text);
+  
       let li = document.createElement("li");
       count++;
       li.id = "liid" + count;
@@ -283,7 +295,7 @@ function demo() {
       li.appendChild(checkBox);
       listul.appendChild(li);
       li.appendChild(btnCancel);
-
+         
       checkBox.addEventListener("change", (e) => {
         // let lineThrow = document.getElementsByClassName("li-class");
         if (checkBox.checked) {
@@ -293,6 +305,8 @@ function demo() {
         }
       });
       //li.addEventListener("click", test);
+     
+
       checkBox.addEventListener("click", countItem);
       document.getElementById("myUl").appendChild(li);
     });
