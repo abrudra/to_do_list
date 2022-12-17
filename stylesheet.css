@@ -1,40 +1,45 @@
 .css-inputBox::placeholder {
   color: #d4d2d2;
   font-style: italic;
-
 }
 
 .li-class {
   list-style: none;
-  /* border: 1px solid red; */
-  border: "1px solid red";
-  font-size: 2.5rem;
-  font-weight: "100";
-  background: white;
-  height: auto;
+  font-size: 30px;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0),
+    rgb(223 100 100)
+  );
+  border-bottom: 1px solid #938888;
+  line-height: 3rem;
 }
 
-.line{
+.line {
   text-decoration: line-through;
 }
 
 .btn-class {
-  position: relative;
-  float: right;
-  /* display: flex; */
-  justify-content: space-between;
-  width: 3vw;
-  height: 6vh;
-  background: #e3444c;
-  color: white;
-  font-size: xx-large;
+ position: relative;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #e3444c;
+    color: white;
+    font-size: large;
+    margin-right: 12px;
+    margin-top: 3px;
+    cursor: pointer;
+  
 }
 
 .checkbox-class {
   position: relative;
   float: left;
-  width: 3em;
-  height: 3em;
+   top: 9px;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: white;
   border-radius: 50%;
   vertical-align: middle;
@@ -43,21 +48,23 @@
   -webkit-appearance: none;
   outline: none;
   cursor: pointer;
+      margin-right: 2%;
 }
 
-.checkboxall-class{
-    position: relative;
+.checkboxall-class {
+  position: relative;
   float: left;
-  width: 3em;
-  height: 3em;
+  width: 2em;
+  height: 2em;
   background-color: white;
-  /* border-radius: 50%; */
+  border-radius: 50%;
   vertical-align: middle;
   border: 1px solid #f96161;
   appearance: none;
   -webkit-appearance: none;
   outline: none;
   cursor: pointer;
+      margin-right: -8%;
 }
 
 .checkboxall-class:checked {
@@ -72,46 +79,66 @@
 
 .allbtn-class {
   height: 2.5rem;
-  /* width: 5rem; */
+  
+    width: 8rem;
+
   font-size: 1.5rem;
   cursor: pointer;
-  
+  border: none;
+    color: #f96161;
 }
 
 .activebtn-class {
-  height: 2.5rem;
-  /* width: 5rem; */
-  font-size: 1.5rem;
-  cursor: pointer;
+     height: 2.5rem;
+    width: 8rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    color: #f96161;
 }
 
 .completeBtn-class {
   height: 2.5rem;
-cursor: pointer;
+  cursor: pointer;
   font-size: 1.5rem;
+  border: none;
+    color: #f96161;
+    width:9rem
 }
 
-.btncolor:hover{
+.btncolor:hover {
   background: #e3444c;
   color: beige;
 }
 
+.btndiv {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+.counterdiv-class {
+  font-size: large;
+}
 
-.btndiv{
+.cleardiv-class {
+  font-size: large;
+  color: black;
+  /* font-weight: 300; */
+  border: none;
+  background: #e6e3e3;
+  cursor: pointer;
+}
+
+.checkbox-Div {
   display: flex;
-  justify-content: space-around;
-}
-.counterdiv-class{
-
-font-size: large;
+  align-items: center;
 }
 
-.cleardiv-class{
-font-size: large;
-color: black;
-/* font-weight: 300; */
-border: none;
-background: #e6e3e3;
-cursor: pointer;
-}
+.listul-class {
+  margin-left: 22%;
+  display: flex;
+  flex-direction: column;
 
+  width: 50rem;
+}
