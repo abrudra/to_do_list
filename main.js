@@ -109,7 +109,7 @@ let addItem = (event) => {
   if (event.keyCode == 13) {
     event.preventDefault();
     let newTask = inputText.value;
-    if (newTask !== "") {
+    if (newTask !== "") { 
       let data = JSON.parse(localStorage.getItem("data"));
       if (data === null) {
         localStorage.setItem(
